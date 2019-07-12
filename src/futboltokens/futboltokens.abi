@@ -1,0 +1,133 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Tue Jul  9 13:50:05 2019",
+    "version": "eosio::abi/1.1",
+    "structs": [
+        {
+            "name": "addquote",
+            "base": "",
+            "fields": [
+                {
+                    "name": "quote",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "init",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "modifyquote",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "quote",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "newowner",
+            "base": "",
+            "fields": [
+                {
+                    "name": "old_owner",
+                    "type": "name"
+                },
+                {
+                    "name": "new_owner",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "quote",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "quote",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "removequote",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "reset",
+            "base": "",
+            "fields": [
+                {
+                    "name": "max",
+                    "type": "int32"
+                }
+            ]
+        }
+    ],
+    "types": [],
+    "actions": [
+        {
+            "name": "addquote",
+            "type": "addquote",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "init",
+            "type": "init",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "modifyquote",
+            "type": "modifyquote",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "newowner",
+            "type": "newowner",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "removequote",
+            "type": "removequote",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "reset",
+            "type": "reset",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "quotes",
+            "type": "quote",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": [],
+    "abi_extensions": []
+}
