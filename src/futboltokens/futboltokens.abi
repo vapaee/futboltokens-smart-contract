@@ -1,86 +1,104 @@
 {
-    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Tue Jul  9 13:50:05 2019",
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Fri Jul 12 20:46:26 2019",
     "version": "eosio::abi/1.1",
     "structs": [
         {
-            "name": "addquote",
+            "name": "account",
             "base": "",
             "fields": [
                 {
-                    "name": "quote",
-                    "type": "string"
+                    "name": "balance",
+                    "type": "asset"
                 }
             ]
         },
         {
-            "name": "init",
+            "name": "close",
             "base": "",
             "fields": [
                 {
                     "name": "owner",
                     "type": "name"
+                },
+                {
+                    "name": "symbol",
+                    "type": "symbol"
                 }
             ]
         },
         {
-            "name": "modifyquote",
+            "name": "create",
             "base": "",
             "fields": [
                 {
-                    "name": "id",
-                    "type": "uint64"
+                    "name": "issuer",
+                    "type": "name"
                 },
                 {
-                    "name": "quote",
+                    "name": "maximum_supply",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "currency_stats",
+            "base": "",
+            "fields": [
+                {
+                    "name": "supply",
+                    "type": "asset"
+                },
+                {
+                    "name": "max_supply",
+                    "type": "asset"
+                },
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "issuers",
+                    "type": "name[]"
+                }
+            ]
+        },
+        {
+            "name": "issue",
+            "base": "",
+            "fields": [
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
                     "type": "string"
                 }
             ]
         },
         {
-            "name": "newowner",
+            "name": "transfer",
             "base": "",
             "fields": [
                 {
-                    "name": "old_owner",
+                    "name": "from",
                     "type": "name"
                 },
                 {
-                    "name": "new_owner",
+                    "name": "to",
                     "type": "name"
-                }
-            ]
-        },
-        {
-            "name": "quote",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
                 },
                 {
-                    "name": "quote",
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
                     "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "removequote",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                }
-            ]
-        },
-        {
-            "name": "reset",
-            "base": "",
-            "fields": [
-                {
-                    "name": "max",
-                    "type": "int32"
                 }
             ]
         }
@@ -88,40 +106,37 @@
     "types": [],
     "actions": [
         {
-            "name": "addquote",
-            "type": "addquote",
+            "name": "close",
+            "type": "close",
             "ricardian_contract": ""
         },
         {
-            "name": "init",
-            "type": "init",
+            "name": "create",
+            "type": "create",
             "ricardian_contract": ""
         },
         {
-            "name": "modifyquote",
-            "type": "modifyquote",
+            "name": "issue",
+            "type": "issue",
             "ricardian_contract": ""
         },
         {
-            "name": "newowner",
-            "type": "newowner",
-            "ricardian_contract": ""
-        },
-        {
-            "name": "removequote",
-            "type": "removequote",
-            "ricardian_contract": ""
-        },
-        {
-            "name": "reset",
-            "type": "reset",
+            "name": "transfer",
+            "type": "transfer",
             "ricardian_contract": ""
         }
     ],
     "tables": [
         {
-            "name": "quotes",
-            "type": "quote",
+            "name": "accounts",
+            "type": "account",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "stat",
+            "type": "currency_stats",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

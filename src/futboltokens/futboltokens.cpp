@@ -1,7 +1,7 @@
-#include "goldencenser.hpp"
+#include "futboltokens.hpp"
 
 
-futboltokens::create(name owner, asset maximum_supply) {
+void futboltokens::create(name owner, asset maximum_supply) {
     PRINT("vapaee::token::core::create()\n");
     PRINT(" owner: ", owner.to_string(), "\n");
     PRINT(" maximum_supply: ", maximum_supply.to_string(), "\n");
@@ -33,7 +33,7 @@ futboltokens::create(name owner, asset maximum_supply) {
     PRINT("vapaee::token::core::create() ...\n");
 }
 
-futboltokens::issue( name to, const asset& quantity, string memo ) {
+void futboltokens::issue( name to, const asset& quantity, string memo ) {
     PRINT("vapaee::token::core::issue()\n");
     PRINT(" to: ", to.to_string(), "\n");
     PRINT(" quantity: ", quantity.to_string(), "\n");
@@ -88,7 +88,7 @@ futboltokens::issue( name to, const asset& quantity, string memo ) {
     PRINT("vapaee::token::core::issue() ...\n");
 }
 
-futboltokens::transfer(name from, name to, asset quantity, string memo) {
+void futboltokens::transfer(name from, name to, asset quantity, string memo) {
     PRINT("vapaee::token::core::transfer()\n");
     PRINT(" from: ", from.to_string(), "\n");
     PRINT(" to: ", to.to_string(), "\n");
@@ -119,7 +119,7 @@ futboltokens::transfer(name from, name to, asset quantity, string memo) {
     PRINT("vapaee::token::core::transfer() ...\n");
 }
 
-futboltokens::close( name owner, const symbol& symbol ) {
+void futboltokens::close( name owner, const symbol& symbol ) {
     PRINT("vapaee::token::core::close()\n");
     PRINT(" owner: ", owner.to_string(), "\n");
     PRINT(" symbol: ", symbol.code().to_string(), "\n");
@@ -135,7 +135,7 @@ futboltokens::close( name owner, const symbol& symbol ) {
 
 
 EOSIO_DISPATCH_VAPAEE (
-    goldencenser,
+    futboltokens,
     (create)(issue)(transfer)(close),
     (htransfer)
 )

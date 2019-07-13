@@ -22,10 +22,35 @@ using namespace std;
 
 CONTRACT futboltokens : public eosio::contract {
 
+    public:
+
+        // tables -------------------------------------------
+        // TABLE accounts (balances) -----------
+        // scope: user
+        TABLE account {
+            eosio::asset balance;
+            uint64_t primary_key()const { return balance.symbol.code().raw(); }
+        };
+        typedef eosio::multi_index< "accounts"_n, account > accounts;
+        // ------------------------------------        
+
+        // TABLE stats (currency) -----------
+        // scope: supply_code
+        TABLE currency_stats {
+            eosio::asset           supply;
+            eosio::asset           max_supply;
+            name                   owner;
+            std::vector<name>      issuers;
+            uint64_t primary_key()const { return supply.symbol.code().raw(); }
+        };
+        typedef eosio::multi_index< "stat"_n, currency_stats > stats;
+        // ------------------------------------
+
+
         using contract::contract;
 
         ACTION create( name issuer, asset maximum_supply);
-        ACTION issue( name to, const asset& quantity, string memo )
+        ACTION issue( name to, const asset& quantity, string memo );
         ACTION transfer(name from, name to, asset quantity, string  memo );
         ACTION close( name owner, const symbol& symbol );
 
