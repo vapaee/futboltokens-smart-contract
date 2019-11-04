@@ -9,6 +9,10 @@ if [ "$1" == "prod" ]; then
    NET='--url https://telos.eos.barcelona'
 fi
 
+if [ "$1" == "test" ]; then
+   NET='--url https://testnet.telos.caleos.io'
+fi
+
 
 FUTBOLTOKENS_HOME=../src/futboltokens
 echo "-------- futboltokens ---------"
