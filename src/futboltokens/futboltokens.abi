@@ -1,5 +1,5 @@
 {
-    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Mon Nov  4 02:05:42 2019",
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Sat Nov 30 16:05:36 2019",
     "version": "eosio::abi/1.1",
     "structs": [
         {
@@ -53,12 +53,8 @@
                     "type": "asset"
                 },
                 {
-                    "name": "owner",
+                    "name": "issuer",
                     "type": "name"
-                },
-                {
-                    "name": "issuers",
-                    "type": "name[]"
                 }
             ]
         },

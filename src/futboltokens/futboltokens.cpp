@@ -1,12 +1,12 @@
 #include "futboltokens.hpp"
 
 
-void futboltokens::create(name owner, asset maximum_supply) {
+void futboltokens::create(name issuer, asset maximum_supply) {
     PRINT("vapaee::token::core::create()\n");
-    PRINT(" owner: ", owner.to_string(), "\n");
+    PRINT(" issuer: ", issuer.to_string(), "\n");
     PRINT(" maximum_supply: ", maximum_supply.to_string(), "\n");
 
-    require_auth( owner );
+    require_auth( issuer );
 
     auto sym = maximum_supply.symbol;
     eosio_assert( sym.is_valid(), "invalid symbol name" );
@@ -20,15 +20,9 @@ void futboltokens::create(name owner, asset maximum_supply) {
     statstable.emplace( _self, [&]( auto& s ) {
         s.supply.symbol = maximum_supply.symbol;
         s.max_supply    = maximum_supply;
-        s.owner         = owner;
+        s.issuer        = issuer;
     });
 
-    action(
-        permission_level{owner,"active"_n},
-        get_self(),
-        "addtoken"_n,
-        std::make_tuple(get_self(), maximum_supply.symbol.code(), maximum_supply.symbol.precision(), owner)
-    ).send();
 
     PRINT("vapaee::token::core::create() ...\n");
 }
@@ -59,7 +53,7 @@ void futboltokens::issue( name to, const asset& quantity, string memo ) {
 
     // check authorization (issuer of appcontract)
     name everyone = "everyone"_n;
-    name issuer = st.owner;
+    name issuer = st.issuer;
     require_auth( issuer );
     
     eosio_assert( quantity.is_valid(), "invalid quantity" );
